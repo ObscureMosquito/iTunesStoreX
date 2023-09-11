@@ -1,1 +1,14 @@
-{ Filter = { Bundles = ( "com.apple.itunesstore" ); }; }
+<plist version="1.0">
+ <dict>
+  <key>Filter</key>
+  <dict>
+   <key>Bundles</key>
+   <array>
+    <string>com.apple.AppStore</string>
+    <string>com.apple.MobileStore</string>
+    <string>com.apple.podcasts</string>
+    <string>com.apple.iBooks</string>
+   </array>
+  </dict>
+ </dict>
+</plist>
