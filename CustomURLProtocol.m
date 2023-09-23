@@ -14,8 +14,8 @@ static NSString * const URLProtocolHandledKey = @"URLProtocolHandledKey";
     // Check if the request URL contains "dv6-storefront-p6bootstrap.js"
     NSString *requestURLString = request.URL.absoluteString;
     
-    // Check if the request URL is the exception URL
-    if ([requestURLString isEqualToString:@"https://search.itunes.apple.com/htmlResources/d04b/dv6-storefront-p6bootstrap.js"]) {
+    // Check if the request URL contains the exception string
+    if ([requestURLString rangeOfString:@"https://search.itunes.apple.com"].location != NSNotFound) {
         // Allow this specific URL to go through without modification
         return NO;
     }
