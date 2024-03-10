@@ -1,3 +1,13 @@
+
+<div align="center">
+<img src="icon.png" width=20% height=20%>
+<h1>Wallpapery</h1>
 # iTunesStoreX
-This tweak modifies the URL's during runtime, which can be resource intensive at times, that is why it is of best practice to pick the correct bundle to hook in the .plist file, as to not drain too much battery. 
-This tweak can be adapted to hook a significant amount of URL connections in ios =>6 (higher versions use NSURLSession, so this tweak might not yield the best result), and you may freely use this code as long as i am credited in your findings/releases.
+</div>
+
+This tweak aims to fix the connection issues originating from Apple restricting access to old storefront domains, it will also restore the layout to its former self. (Does not currently allow for downloading apps).
+
+## Usage
+Download and install in cydia through any of these repositories:
+https://cydia.skyglow.es
+http://cydia.mali357.gay

@@ -11,12 +11,10 @@ static NSString * const URLProtocolHandledKey = @"URLProtocolHandledKey";
 @implementation CustomURLProtocol
 
 + (BOOL)canInitWithRequest:(NSURLRequest *)request {
-    // Check if the request URL contains "dv6-storefront-p6bootstrap.js"
     NSString *requestURLString = request.URL.absoluteString;
     
     // Check if the request URL contains the exception string
     if ([requestURLString rangeOfString:@"https://search.itunes.apple.com"].location != NSNotFound) {
-        // Allow this specific URL to go through without modification
         return NO;
     }
     
@@ -24,7 +22,6 @@ static NSString * const URLProtocolHandledKey = @"URLProtocolHandledKey";
         return YES;
     }
     
-    // Check if the request URL contains "dv6-storefront-k6bootstrap.js"
     if ([requestURLString rangeOfString:@"dv6-storefront-k6bootstrap.js"].location != NSNotFound) {
         return YES;
     }
@@ -68,29 +65,24 @@ static NSString * const URLProtocolHandledKey = @"URLProtocolHandledKey";
 }
 
 - (void)passThroughRequest:(NSURLRequest *)request {
-    // Allow a specific request to go through without modification
     self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
 #pragma mark - NSURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    // Pass the received response back to the app
     [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    // Pass the received data back to the app
     [self.client URLProtocol:self didLoadData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    // Indicate that loading is complete
     [self.client URLProtocolDidFinishLoading:self];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    // Handle any connection errors and pass them back to the app
     [self.client URLProtocol:self didFailWithError:error];
 }
 

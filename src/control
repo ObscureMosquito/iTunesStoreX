@@ -1,8 +1,8 @@
-Package: com.mosquito.itunesstorex
+Package: com.skyglow.itunesstorex
 Name: iTunesStoreX
 Version: 1.0
 Architecture: iphoneos-arm
-Description: This tweak fixes the App Store (Particularly every aspect of the iTunes Store too). It fixes every app's connection issues with the iTunes Store, examples are: Podcasts, iBooks, Videos, Music, iTunes and of course, the App Store. This tweak also fixes Apple ID Authentication, downloads and the pwning of apps on iOS 6 (the Apple ID prompt bypass), since that's been impossible since apple shut of the iTunes Store on anything lower than 7
+Description: This tweak fixes any storefront. It fixes every app's connection issues with the iTunes Store, as of recent changes made by Apple, this tweak does not allow to download apps.
 Maintainer: Requis, Daph
 Author: Requis (ObscureMosquito), Daph (Mali)
 Section: Tweaks

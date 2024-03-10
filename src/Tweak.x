@@ -3,35 +3,24 @@
 #import <substrate.h>
 #import <CustomURLProtocol.h>
 
-%hook NSURL
 
-- (instancetype)initWithString:(NSString *)URLString {
+%hook ISLoadURLBagOperation
 
-    // URLs to modify
-    NSString *baseURLToModify1 = @"http://ax.init.itunes.apple.com";
-
-    // Check if the URL starts with the specified base URLs
-    if ([URLString hasPrefix:baseURLToModify1]) {
-
-        NSURL *oldURL = [NSURL URLWithString:URLString];
-        NSString *path = [oldURL path];
-        NSString *query = [oldURL query];
-
-        // Ax init replacement, also dv6->7
-        NSString *newBaseURL = @"http://init.itunes.apple.com";
-        NSString *newURLString = [NSString stringWithFormat:@"%@%@%@", newBaseURL, path, (query ? [NSString stringWithFormat:@"?%@", query] : @"")];
-
-        // Create a new NSURL instance with the modified URL
+- (void)operation:(id)operation willSendRequest:(NSMutableURLRequest *)request {
+    NSURL *currentURL = [request URL];
+    NSString *urlString = [currentURL absoluteString];
+    NSRange range = [urlString rangeOfString:@"ax.init.itunes.apple.com"];
+    if (range.location != NSNotFound) {
+        NSString *newURLString = [urlString stringByReplacingOccurrencesOfString:@"ax.init.itunes.apple.com" withString:@"init.itunes.apple.com"];
+        
         NSURL *newURL = [NSURL URLWithString:newURLString];
-
-        return newURL;
-    } else {
-        // If the URL doesn't need modification, return the original NSURL instance
-        return %orig;
+        [request setURL:newURL];
     }
+    %orig;
 }
 
 %end
+
 
 %hook NSURLRequest
 
@@ -41,10 +30,7 @@ static void RegisterCustomURLProtocol() {
 
 __attribute__((constructor))
 static void init_hook() {
-    // Register your custom protocol class
     RegisterCustomURLProtocol();
-
-    // Other initialization code for your tweak
 }
 
 %end

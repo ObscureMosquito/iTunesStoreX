@@ -1,6 +1,6 @@
 TARGET := iphone:clang:latest:7.0
 INSTALL_TARGET_PROCESSES = SpringBoard
-BUNDLE_NAME = com.mosquito.itunesstorex
+BUNDLE_NAME = com.skyglow.itunesstorex
 
 archs= armv7
 
