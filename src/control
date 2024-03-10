@@ -1,6 +1,6 @@
 Package: com.skyglow.itunesstorex
 Name: iTunesStoreX
-Version: 1.0
+Version: 2.0
 Architecture: iphoneos-arm
 Description: This tweak fixes any storefront. It fixes every app's connection issues with the iTunes Store, as of recent changes made by Apple, this tweak does not allow to download apps.
 Maintainer: Requis, Daph
