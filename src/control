@@ -3,7 +3,9 @@ Name: iTunesStoreX
 Version: 2.0
 Architecture: iphoneos-arm
 Description: This tweak fixes any storefront. It fixes every app's connection issues with the iTunes Store, as of recent changes made by Apple, this tweak does not allow to download apps.
-Maintainer: Requis, Daph
-Author: Requis (ObscureMosquito), Daph (Mali)
+Maintainer: Requis, Bag.xml
+Author: Requis, Bag.xml
 Section: Tweaks
-Depends: mobilesubstrate, firmware(<==6)
+Icon: file:///Library/Application%20Support/com.skyglow.weatherx/ItunesStoreX-Icon.png
+Depiction: http://cydia.skyglow.es/depictions/com.skyglow.itunesstorex/depictions/index.html
+Depends: mobilesubstrate, firmware(<==7.9)
