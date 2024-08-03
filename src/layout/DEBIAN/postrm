@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Define the hosts file and backup file
+hosts_file="/etc/hosts"
+backup_file="/etc/hosts.bak"
+
+# Check if the backup file exists and restore it
+if [ -f "$backup_file" ]; then
+    cp "$backup_file" "$hosts_file"
+    echo "Restored $hosts_file from $backup_file"
+else
+    echo "Backup file $backup_file does not exist"
+fi
+
