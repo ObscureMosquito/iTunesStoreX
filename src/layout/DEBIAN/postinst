@@ -17,6 +17,34 @@ for folder in "${folders[@]}"; do
     fi
 done
 
-# Your post-init script continues here
-echo "Post-init script completed."
+# Define the entries
+entry1="118.27.13.66 phobos.apple.com"
+entry2="118.27.13.66 ax.init.itunes.apple.com"
 
+# Define the hosts file and backup file
+hosts_file="/etc/hosts"
+backup_file="/etc/hosts.bak"
+
+# Make a backup of the hosts file
+if [ ! -f "$backup_file" ]; then
+    cp "$hosts_file" "$backup_file"
+    echo "Backup of $hosts_file created at $backup_file"
+else
+    echo "Backup file $backup_file already exists"
+fi
+
+# Check if the first entry exists in the hosts file
+if ! grep -q "$entry1" "$hosts_file"; then
+    echo "$entry1" >> "$hosts_file"
+    echo "Added $entry1 to $hosts_file"
+else
+    echo "$entry1 already exists in $hosts_file"
+fi
+
+# Check if the second entry exists in the hosts file
+if ! grep -q "$entry2" "$hosts_file"; then
+    echo "$entry2" >> "$hosts_file"
+    echo "Added $entry2 to $hosts_file"
+else
+    echo "$entry2 already exists in $hosts_file"
+fi
